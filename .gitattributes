@@ -1,0 +1,6 @@
+# Fuerza finales de línea LF (evita problemas en contenedores Linux cuando se clona en Windows)
+* text=auto eol=lf
+*.xlsx binary
+*.xls binary
+*.pdf binary
+*.png binary

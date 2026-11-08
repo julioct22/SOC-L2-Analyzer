@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+@import 'react-day-picker/style.css';
+
+@theme {
+  --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace;
+  --color-ink-950: #070b14;
+  --color-ink-900: #0b1220;
+  --color-ink-850: #0f1729;
+  --color-ink-800: #141d31;
+  --color-ink-700: #1e2a44;
+  --color-ink-600: #2b3a5c;
+  --color-accent: #f97316;
+  --color-sev-critical: #ef4444;
+  --color-sev-high: #f97316;
+  --color-sev-medium: #eab308;
+  --color-sev-low: #3b82f6;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-950 text-slate-200 antialiased;
+}
+
+::selection {
+  background: rgb(249 115 22 / 0.35);
+}
+
+/* Scrollbars discretos */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-600) transparent;
+}
+
+/* Calendario (react-day-picker) en tema oscuro */
+.rdp-root {
+  --rdp-accent-color: var(--color-accent);
+  --rdp-accent-background-color: rgb(249 115 22 / 0.15);
+  --rdp-day-height: 38px;
+  --rdp-day-width: 38px;
+  --rdp-day_button-height: 36px;
+  --rdp-day_button-width: 36px;
+  --rdp-today-color: var(--color-accent);
+  color: #cbd5e1;
+}
+.rdp-has-uploads .rdp-day_button {
+  position: relative;
+  font-weight: 700;
+  color: #fff;
+}
+.rdp-has-uploads .rdp-day_button::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+}
+
+@utility card {
+  @apply rounded-xl border border-ink-700 bg-ink-900/80;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-accent text-white hover:bg-orange-500 shadow-[0_0_0_1px_rgb(249_115_22/0.4),0_8px_24px_-8px_rgb(249_115_22/0.5)];
+}
+@utility btn-ghost {
+  @apply btn border border-ink-600 bg-ink-800 text-slate-200 hover:border-slate-500 hover:bg-ink-700;
+}
+@utility btn-danger {
+  @apply btn border border-red-500/40 bg-red-500/10 text-red-300 hover:bg-red-500/20;
+}
+@utility input {
+  @apply w-full rounded-lg border border-ink-600 bg-ink-850 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/25;
+}
+@utility label {
+  @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-400;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "soc-l2-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma de análisis de logs SOC Nivel 2: detección mapeada a MITRE ATT&CK, revisión por analista L2 e informe técnico en PDF asistido por IA.",
+  "packageManager": "yarn@1.22.22",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "yarn workspace @soc/api dev",
+    "dev:web": "yarn workspace @soc/web dev",
+    "build": "yarn workspace @soc/api build && yarn workspace @soc/web build",
+    "typecheck": "yarn workspace @soc/shared typecheck && yarn workspace @soc/api typecheck && yarn workspace @soc/web typecheck",
+    "test": "yarn workspace @soc/api test",
+    "db:generate": "yarn workspace @soc/api db:generate"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
